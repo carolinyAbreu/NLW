@@ -1,0 +1,158 @@
+* /* * é geral, pega tudo*/ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* reset do css pra limpar padrões do navegador*/
+}
+
+ul {
+    list-style: none; /* tirar os pontinhos da lista*/
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center; /* em cima e no meio  */
+    background-size: 100% auto; /* 100% da largura disponivel da tela */
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+header {
+    margin-top: 32px; /* margem de cima*/
+    height: calc(120px + 32px); /* css faz um calculo*/
+}
+
+header div {
+    width: 120px;
+    margin: auto; /* ficar alinhado no centro a minha imagem*/
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* é usado dessa forma para fazer gradiente. primeiro os graus e depois as cores*/
+    
+    border-radius: 100%;
+
+    display: flex; /* display flex deixa um elemento ao lado do outro*/
+    padding: 4px; /* preenchimento de 4px da borda*/
+
+    transition: transform .3s; /* transição de quando passa o mouse em cima, com 3s*/
+}
+
+header div:hover { /* significa quando passar o mouse em cima*/
+    transform: scale(1.1); /* a escala do elemento será 1.1*/
+}
+
+header div img {
+    width: 100%; /* 100% em relação a div de 120px - minha imagem*/
+    border-radius: 50%;
+}
+
+main { /* pai de todos*/
+    max-width: 580px; /* significa que todas as coisas que existem dentro dele vão manter essa largura max */
+    width: 90%; /* se minha tela fosse menor que 580px, ficaria 90% em relação em largura da tela*/
+    margin: 32px auto; /* espaço de cima e de baixo*/
+
+    display: grid; 
+    gap: 24px; /* espaço entre as grid (embaixo uma da outra)*/
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* é usado dessa forma para fazer gradiente. primeiro os graus e depois as cores*/
+    padding-top: 4px; /* preenchimento interno*/
+    border-radius: 10px; /* arredondar mais que a de baixo*/
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px; /* dimensões da caixa*/
+    padding-top: 24px; /* dimensão de cima da caixa*/
+    border-radius: 8px; /* arredondamento de borda*/
+
+    /* border-top: 4px solid red; - seria para colorir a borda, mas como são várias cores, será feito no section */
+}
+
+section h2 {
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul {
+    display: flex; /* faz com que os componentes li da caixa ul fiquem um ao lado do outro*/
+    flex-wrap: wrap; /* joga os itens da lista para baixo quando nao couber mais do lado*/
+    gap: 16px; /* espaço entre os itens da lista*/
+
+    margin-top: 24px; /* espaço do topo*/
+}
+
+section ul li {
+    transition: transforma .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    width: 70px;
+    border-radius: 50%; /* deixa a borda bem redonda*/
+    border: 1px solid #443E54;
+}
+
+
+/* ANIMATION */
+
+header div {
+    animation: fromTop .7s 0.4s backwards;  /* sempre que tem um delay, é importante puxar propriedades antes para um bom comportamento (backwards)*/
+    
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) /* section do filho 1*/ {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .3s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .6s;
+}
+
+@keyframes fromTop /* de cima*/ {
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /* 30px para cima*/
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* 30px para baixo*/
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
